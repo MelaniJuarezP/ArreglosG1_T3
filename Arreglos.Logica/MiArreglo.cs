@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
@@ -12,7 +13,7 @@ namespace Arreglos.Logica
         private int[] _arreglo;
 
         //constructor
-        public MiArreglo(int n) 
+        public MiArreglo(int n)
         {
             N = n;
             _arreglo = new int[N];
@@ -24,15 +25,53 @@ namespace Arreglos.Logica
         public bool EstaLleno => _tope == N;
         public bool EstaVacio => _tope == 0;
 
-        //métodos
+        //métodos llenar
         public void LLenar(int minimo, int maximo)
         {
             Random oRandom = new Random();
             for (int i = 0; i < N; i++)
             {
-                _arreglo[i] = oRandom.Next( minimo, maximo);
+                _arreglo[i] = oRandom.Next(minimo, maximo);
             }
             _tope = N;
+        }
+
+        //metodo ordenar (burbuja)
+        public void Ordenar()
+        {
+            Ordenar(true);//si no tiene parametro, lo hace ascendente
+        }
+        public void Ordenar(bool ascendente)
+        {
+            for (int i = 0; i < _tope; i++) 
+            {
+                for (int j = i+1; j < _tope; j++)
+                {
+                    if (ascendente)
+                    {
+                        if (_arreglo[i] > _arreglo[j])
+                        {
+                            Cambiar(ref _arreglo[i], ref _arreglo[j]);
+                        }
+                    }
+                    else 
+                    {
+                        if (_arreglo[i] < _arreglo[j])
+                        {
+                            Cambiar(ref _arreglo[i], ref _arreglo[j]);
+                        }
+                    }
+                    
+                }
+            }
+        }
+        
+        //metodo cambiar
+        public void Cambiar(ref int a, ref int b)
+        {
+            int aux = a;
+            a = b;
+            b = aux;
         }
 
         //método ToString
