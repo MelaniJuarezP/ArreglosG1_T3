@@ -74,6 +74,17 @@ namespace Arreglos.Logica
             b = aux;
         }
 
+        //metodo agregar
+        public void Agregar(int numero)
+        {
+            if (EstaLleno)
+            {
+                throw new Exception("El arreglo esta lleno");
+            }
+            _arreglo[_tope] = numero;
+            _tope++;
+        }
+
         //método ToString
         public override string ToString()
         {
