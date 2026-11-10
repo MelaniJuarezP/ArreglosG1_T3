@@ -1,9 +1,33 @@
 ﻿using Arreglos.Logica;
 
-Console.WriteLine("Operaciones de pila");
-Console.WriteLine("Arreglo");
-MiArreglo oMiArreglo= new MiArreglo(5);
+//Console.WriteLine("Operaciones de pila");
+MiArreglo oMiArreglo= new MiArreglo(100);
 try
+{
+    Console.WriteLine("Arreglo");
+    oMiArreglo.Llenar();
+    Console.WriteLine(oMiArreglo);
+    Console.ReadKey();
+
+
+    Console.WriteLine("\nPares");
+    var verPares = oMiArreglo.ObtenerPares();
+    Console.WriteLine(verPares);
+    Console.ReadKey();
+
+
+    Console.WriteLine("\nPares ordenados");
+    verPares.Ordenar(false);
+    Console.WriteLine(verPares);
+    Console.ReadKey();
+
+}
+catch (Exception)
+{
+
+    throw;
+}
+/*try
 {
     oMiArreglo.Agregar(7);
     oMiArreglo.Agregar(-2);
