@@ -17,15 +17,28 @@ try
 
 
     Console.WriteLine("\nPares ordenados");
-    verPares.Ordenar(false);
+    verPares.Ordenar(false); //false descendene true ascendente
     Console.WriteLine(verPares);
     Console.ReadKey();
 
+    Console.WriteLine("\nPrimos");
+    var verPrimos = oMiArreglo.ObtenerPrimos();
+    Console.WriteLine(verPrimos);
+    Console.ReadKey();
+
+
+    Console.WriteLine("\nPrimos ordenados");
+    verPrimos.Ordenar(true); //false descendene true ascendente
+    Console.WriteLine(verPrimos);
+    Console.ReadKey();
+
+
+
 }
-catch (Exception)
+catch (Exception ex)
 {
 
-    throw;
+    Console.WriteLine(ex.Message);
 }
 /*try
 {

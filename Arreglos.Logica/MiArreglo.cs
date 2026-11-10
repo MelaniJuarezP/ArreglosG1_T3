@@ -161,6 +161,44 @@ namespace Arreglos.Logica
 
             return arregloPares;
         }
+        //Metodo obtener primos
+
+        public MiArreglo ObtenerPrimos()
+        {
+            int contadorPrimos = 0;
+            for (int i = 0; i < _tope; i++)
+            {
+                if(_arreglo[i]==1){ continue; }//salta a la siguiente iteración
+                if (EsPrimo(_arreglo[i]))
+                {
+                    contadorPrimos++;
+                }
+            }
+            var arregloPrimos = new MiArreglo(contadorPrimos);
+            for (int i = 0; i < _tope; i++)
+            {
+                if (_arreglo[i] == 1) { continue; }//salta a la siguiente iteración
+                if (EsPrimo(_arreglo[i]))
+                {
+                    arregloPrimos.Agregar(_arreglo[i]);
+                }
+
+            }
+            return arregloPrimos;
+        }
+        //metodo EsPrimo
+        private bool EsPrimo(int n)
+        {
+            for (int i = 2; i < n; i++)
+            {
+                if (n%i==0)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
 
         //método ToString
         public override string ToString()
