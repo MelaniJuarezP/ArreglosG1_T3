@@ -143,7 +143,7 @@ namespace Arreglos.Logica
             int contadorPares = 0;
             for (int i = 0; i < _tope; i++)
             {
-                if (_arreglo[i] % 2==0)
+                if (EsPar(_arreglo[i]))
                 {
                     contadorPares++;
                 }
@@ -152,7 +152,7 @@ namespace Arreglos.Logica
             var arregloPares = new MiArreglo(contadorPares);
             for (int i = 0; i < _tope; i++)
             {
-                if (_arreglo[i]%2==0)
+                if (EsPar(_arreglo[i]))
                 {
                     arregloPares.Agregar(_arreglo[i]);
                 }
@@ -160,6 +160,16 @@ namespace Arreglos.Logica
             }
 
             return arregloPares;
+        }
+
+        //metodo EsPar
+        private bool EsPar(int n)
+        {
+            if (n % 2 == 0)
+            {
+                return true;
+            }
+            return false;
         }
         //Metodo obtener primos
 
